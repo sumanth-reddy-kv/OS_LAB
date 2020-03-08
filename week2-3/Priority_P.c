@@ -1,4 +1,4 @@
-#include<stdio.h
+#include<stdio.h>
 #include<stdlib.h>
 
 int finding(int n,int pid[],int at[],int bt[],int tat[],int wt[],int compt[],int rt[],int temppri[])
@@ -7,7 +7,7 @@ int finding(int n,int pid[],int at[],int bt[],int tat[],int wt[],int compt[],int
     while(complete!=n)
     {
         done=0;
-        priority=0;
+        priority=0;                                                                 //High number has High priority
         for(i=0;i<n;i++)
         {
             if(temppri[i]>priority)
@@ -40,7 +40,7 @@ int finding(int n,int pid[],int at[],int bt[],int tat[],int wt[],int compt[],int
         {
             complete++;
             done=0;
-            compt[mainprio]=time+1;
+            compt[mainprio]=time;
             tat[mainprio]=compt[mainprio]-at[mainprio];
             wt[mainprio]=tat[mainprio]-bt[mainprio];
         }
@@ -78,9 +78,9 @@ int main()
 
     idle=finding(n,PID,at,bt,tat,wt,compt,rt,temppri);
 
-	printf("|PID\t|Arrival time\t|Burst time\t|completion\t|turn around\t|wait time\t|");
+	printf("|PID\t|Priority\t|Arrival time\t|Burst time\t|completion\t|turn around\t|wait time\t|");
 	for(i=0;i<n;i++)
-		printf("\n|P%d\t|\t%d\t|\t%d\t|\t%d\t|\t%d\t|\t%d\t|",PID[i],at[i],bt[i],compt[i],tat[i],wt[i]);
+		printf("\n|P%d\t|\t%d\t|\t%d\t|\t%d\t|\t%d\t|\t%d\t|\t%d\t|",PID[i],pri[i],at[i],bt[i],compt[i],tat[i],wt[i]);
 	printf("\n\nIdle time:%d\n\n",idle);
 
     return 0;
